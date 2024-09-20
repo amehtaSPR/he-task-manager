@@ -21,39 +21,37 @@ export const Form = ({ onSave, formConfig, profile }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className="space-y-12">
-        <div className="border-b border-gray-900/10 pb-12">
-          <h2 className="text-base font-semibold leading-7 text-gray-900">
-            Personal Information
-          </h2>
+      <div className="space-y-6">
+        <h2 className="text-lg font-semibold leading-7 text-gray-900">
+          Personal Information
+        </h2>
 
-          <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8">
-            {formConfig.map(({ type, ...formElementProps }) => {
-              const Component = TYPE_VS_COMPONENT[type];
+        <div className="flex flex-col gap-6">
+          {formConfig.map(({ type, ...formElementProps }) => {
+            const Component = TYPE_VS_COMPONENT[type];
 
-              if (!Component) return null;
+            if (!Component) return null;
 
-              const elementId = formElementProps.id;
+            const elementId = formElementProps.id;
 
-              return (
-                <div key={elementId} className="col-span-full">
-                  <Component
-                    {...formElementProps}
-                    value={formValues[elementId]}
-                    onChange={(newValue) => {
-                      setFormValues((prevValues) => ({
-                        ...prevValues,
-                        [elementId]: newValue,
-                      }));
-                    }}
-                  />
-                </div>
-              );
-            })}
-          </div>
+            return (
+              <div key={elementId} className="col-span-full">
+                <Component
+                  {...formElementProps}
+                  value={formValues[elementId]}
+                  onChange={(newValue) => {
+                    setFormValues((prevValues) => ({
+                      ...prevValues,
+                      [elementId]: newValue,
+                    }));
+                  }}
+                />
+              </div>
+            );
+          })}
         </div>
 
-        <div className="mt-6 flex items-center justify-end gap-x-6">
+        <div className="flex items-center justify-end gap-x-6">
           <button
             type="button"
             className="text-sm font-semibold leading-6 text-gray-900"

@@ -1,4 +1,4 @@
-import { withCollapsibleInput } from 'src/components/form/components/withCollapsibleInput';
+import { withCollapsibleInput } from '../withCollapsibleInput';
 
 const TextField = ({ id, label, value, placeholder, onChange }) => {
   return (
