@@ -8,8 +8,8 @@ You are given a form with a bunch of fields.
 **Requirements**:
 1. Fields without `collapsibleConfig` should not show a checkbox and label to collapse
 2. Toggling collapsible checkbox should toggle visibility of the field
-3. `initialValue` supplied via `collapsibleConfig` should be used to prepopulate the field when collapsoble input is expanded and not value present in profile for it
-4. If the user modifies value of a collapsible field and toggles it off. Then on expanding the field again, the modified value should appear in the field.
+3. `initialValue` supplied via `collapsibleConfig` should be used to prepopulate the field when collapsoble input is expanded and no value present in profile for it
+4. If the user modifies value of a collapsible field and toggles it off. Then on expanding the field again, the modified value should appear in the field
 
 **Structure of collapsibleConfig**
 ```aiignore
