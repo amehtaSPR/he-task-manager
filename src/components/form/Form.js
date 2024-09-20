@@ -1,6 +1,7 @@
-import { TextField } from 'components/fields/TextField';
-import { NumberField } from 'components/fields/NumberField';
-import { SelectField } from 'components/fields/SelectField';
+import { TextField } from './components/fields/TextField';
+import { NumberField } from './components/fields/NumberField';
+import { SelectField } from './components/fields/SelectField';
+import { useState } from 'react';
 
 const TYPE_VS_COMPONENT = {
   TEXT: TextField,
@@ -9,14 +10,13 @@ const TYPE_VS_COMPONENT = {
 };
 
 export const Form = ({ onSave, formConfig, profile }) => {
+  const [formValues, setFormValues] = useState(profile);
+
   const handleSubmit = (e) => {
     // Prevent the browser from reloading the page
     e.preventDefault();
-    // Read the form data
-    const form = e.target;
-    const formData = new FormData(form);
 
-    onSave(formData);
+    onSave(formValues);
   };
 
   return (
@@ -40,8 +40,14 @@ export const Form = ({ onSave, formConfig, profile }) => {
                   <Component
                     {...formElementProps}
                     value={
-                      elementId in profile ? profile[elementId] : defaultValue
+                      elementId in formValues ? formValues[elementId] : defaultValue
                     }
+                    onChange={(newValue) => {
+                      setFormValues((prevValues) => ({
+                        ...prevValues,
+                        [elementId]: newValue,
+                      }));
+                    }}
                   />
                 </div>
               );

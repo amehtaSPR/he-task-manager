@@ -1,4 +1,4 @@
-const FORM_CONFIG = [
+export const FORM_CONFIG = [
   {
     id: 'firstName',
     type: 'TEXT',
