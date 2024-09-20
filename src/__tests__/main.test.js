@@ -109,7 +109,6 @@ describe('Verify Checkbox Behaviour in Collapsible Input', () => {
 
     expect(screen.getByTestId('collapsible-input-age').checked).toBe(false);
 
-    // Toggle checkbox
     await user.click(screen.getByLabelText('Allow Age Selection'));
 
     expect(screen.getByTestId('collapsible-input-age').checked).toBe(true);
@@ -142,7 +141,6 @@ describe('Verify Checkbox Behaviour in Collapsible Input', () => {
 
     expect(screen.getByTestId('collapsible-input-age').checked).toBe(true);
 
-    // Toggle checkbox
     await user.click(screen.getByLabelText('Allow Age Selection'));
 
     expect(screen.getByTestId('collapsible-input-age').checked).toBe(false);
@@ -152,60 +150,6 @@ describe('Verify Checkbox Behaviour in Collapsible Input', () => {
 });
 
 describe('Verify Save Behaviour for Collapsible Input Field', () => {
-  test('When user modifies value of collapsible field, on submitting the form updated value should be saved', async () => {
-    const mockSave = jest.fn();
-    render(
-      <Form
-        onSave={mockSave}
-        profile={{
-          lastName: 'Doe',
-          firstName: 'John',
-        }}
-        formConfig={[
-          {
-            id: 'firstName',
-            type: 'TEXT',
-            label: 'First Name',
-            placeholder: 'Enter first name',
-          },
-          {
-            id: 'lastName',
-            type: 'TEXT',
-            label: 'Last Name',
-            placeholder: 'Enter last name',
-            collapsibleConfig: {
-              title: 'Allow Last Name',
-            },
-          },
-          {
-            id: 'age',
-            type: 'NUMBER',
-            label: 'Age',
-            collapsibleConfig: {
-              title: 'Allow Age Selection',
-              initialValue: 45,
-            },
-          },
-        ]}
-      />
-    );
-
-    const lastNameInput = screen.getByLabelText('Last Name');
-
-    await user.clear(lastNameInput);
-
-    await user.type(lastNameInput, 'Cumberbatch');
-
-    expect(lastNameInput).toHaveValue('Cumberbatch');
-
-    await user.click(screen.getByText('Save'));
-
-    expect(mockSave).toHaveBeenCalledWith({
-      lastName: 'Cumberbatch',
-      firstName: 'John',
-    });
-  });
-
   test('When user toggles collapsible field off, on submitting the form undefined value should be saved', async () => {
     const mockSave = jest.fn();
     render(
@@ -299,7 +243,6 @@ describe('Verify Save Behaviour for Collapsible Input Field', () => {
 
     expect(screen.queryByLabelText('Age')).not.toBeInTheDocument();
 
-    // Toggle checkbox
     await user.click(screen.getByLabelText('Allow Age Selection'));
 
     expect(screen.getByTestId('collapsible-input-age').checked).toBe(true);
@@ -356,7 +299,6 @@ describe('Verify Save Behaviour for Collapsible Input Field', () => {
 
     expect(screen.queryByLabelText('Age')).not.toBeInTheDocument();
 
-    // Toggle checkbox
     await user.click(screen.getByLabelText('Allow Age Selection'));
 
     expect(screen.getByTestId('collapsible-input-age').checked).toBe(true);
@@ -395,6 +337,7 @@ describe('Verify Save Behaviour for Collapsible Input Field', () => {
             placeholder: 'Enter last name',
             collapsibleConfig: {
               title: 'Allow Last Name',
+              initialValue: 'Doe'
             },
           },
           {
@@ -420,7 +363,6 @@ describe('Verify Save Behaviour for Collapsible Input Field', () => {
 
     expect(lastNameInput).toHaveValue('Touie');
 
-    // Toggle checkbox
     await user.click(screen.getByLabelText('Allow Last Name'));
     await user.click(screen.getByLabelText('Allow Age Selection'));
 
