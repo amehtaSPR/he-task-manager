@@ -28,7 +28,7 @@ export const Form = ({ onSave, formConfig, profile }) => {
           </h2>
 
           <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8">
-            {formConfig.map(({ type, defaultValue, ...formElementProps }) => {
+            {formConfig.map(({ type, ...formElementProps }) => {
               const Component = TYPE_VS_COMPONENT[type];
 
               if (!Component) return null;
@@ -39,9 +39,7 @@ export const Form = ({ onSave, formConfig, profile }) => {
                 <div key={elementId} className="col-span-full">
                   <Component
                     {...formElementProps}
-                    value={
-                      elementId in formValues ? formValues[elementId] : defaultValue
-                    }
+                    value={formValues[elementId]}
                     onChange={(newValue) => {
                       setFormValues((prevValues) => ({
                         ...prevValues,

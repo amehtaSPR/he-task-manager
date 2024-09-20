@@ -4,20 +4,21 @@ export const FORM_CONFIG = [
     type: 'TEXT',
     label: 'First Name',
     placeholder: 'Enter first name',
-    defaultValue: 'Jane',
   },
   {
     id: 'lastName',
     type: 'TEXT',
     label: 'Last Name',
     placeholder: 'Enter last name',
-    defaultValue: 'Doe',
   },
   {
     id: 'about',
     type: 'TEXT',
     label: 'About',
     placeholder: 'Write a few sentences about yourself',
+    toggleConfig: {
+      title: 'Allow to add some information about me',
+    },
   },
   {
     id: 'emailAddress',
@@ -29,7 +30,10 @@ export const FORM_CONFIG = [
     id: 'age',
     type: 'NUMBER',
     label: 'Age',
-    defaultValue: 45,
+    toggleConfig: {
+      title: 'Allow Age Selection',
+      initialValue: 45,
+    },
   },
   {
     id: 'country',
@@ -53,6 +57,9 @@ export const FORM_CONFIG = [
         label: 'Japan',
       },
     ],
-    defaultValue: 'india',
+    toggleConfig: {
+      title: 'Allow Country Selection',
+      initialValue: 'india',
+    },
   },
 ];

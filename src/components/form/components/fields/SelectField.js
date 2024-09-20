@@ -1,4 +1,6 @@
-export const SelectField = ({ id, label, value, dropdownOptions, onChange }) => {
+import { withCollapsibleInput } from 'src/components/form/components/withCollapsibleInput';
+
+const SelectField = ({ id, label, value, dropdownOptions, onChange }) => {
   return (
     <>
       <label
@@ -28,3 +30,7 @@ export const SelectField = ({ id, label, value, dropdownOptions, onChange }) => 
     </>
   );
 };
+const CollapsibleSelectField = withCollapsibleInput(SelectField);
+
+export { CollapsibleSelectField as SelectField };
+
