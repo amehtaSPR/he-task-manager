@@ -16,7 +16,7 @@ export const FORM_CONFIG = [
     type: 'TEXT',
     label: 'About',
     placeholder: 'Write a few sentences about yourself',
-    toggleConfig: {
+    collapsibleConfig: {
       title: 'Allow to add some information about me',
     },
   },
@@ -30,7 +30,7 @@ export const FORM_CONFIG = [
     id: 'age',
     type: 'NUMBER',
     label: 'Age',
-    toggleConfig: {
+    collapsibleConfig: {
       title: 'Allow Age Selection',
       initialValue: 45,
     },
@@ -57,7 +57,7 @@ export const FORM_CONFIG = [
         label: 'Japan',
       },
     ],
-    toggleConfig: {
+    collapsibleConfig: {
       title: 'Allow Country Selection',
       initialValue: 'india',
     },

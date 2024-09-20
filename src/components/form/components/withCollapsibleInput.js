@@ -1,12 +1,12 @@
 import { useState, useCallback } from 'react';
 
 export const withCollapsibleInput = (Component) => (props) => {
-  if (!props.toggleConfig) {
+  if (!props.collapsibleConfig) {
     return <Component {...props} />;
   }
 
-  const { toggleConfig, value: _value, onChange, id, ...restProps } = props;
-  const { title, initialValue } = toggleConfig;
+  const { collapsibleConfig, value: _value, onChange, id, ...restProps } = props;
+  const { title, initialValue } = collapsibleConfig;
 
   const [isOn, setIsOn] = useState(!!_value);
   const [value, setValue] = useState(_value);
@@ -44,6 +44,7 @@ export const withCollapsibleInput = (Component) => (props) => {
         <input
           id={`collapsible-input-${id}`}
           name={`collapsible-input-${id}`}
+          data-testid={`collapsible-input-${id}`}
           type="checkbox"
           checked={isOn}
           onChange={handleToggle}
