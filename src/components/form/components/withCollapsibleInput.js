@@ -2,7 +2,7 @@
  * FILL THE GAPS IN THE COMPONENT TO SUPPORT:
  * 1. Fields without collapsibleConfig prop should not show a checkbox and label
  * 2. Clicking on checkbox should show/hide the respective field
- * 3. initialValue supplied via collapsibleConfig should be used to prepopulate the field when collapsoble input is expanded and no value present in profile for it
+ * 3. initialValue supplied via collapsibleConfig should be used to prepopulate the field when collapsible input is expanded and no value present in profile for it
  * 4. If the user modifies value of a collapsible field and toggles it off. Then on expanding the field again, the modified value should appear in the field
  */
 
